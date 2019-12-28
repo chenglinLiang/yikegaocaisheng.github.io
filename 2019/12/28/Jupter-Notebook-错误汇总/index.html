@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="Jupter Notebook 错误汇总"><meta name="keywords" content="Jupyter"><meta name="author" content="Chenglin"><meta name="copyright" content="Chenglin"><title>Jupter Notebook 错误汇总 | Lin的博客</title><link rel="shortcut icon" href="/blog-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.6.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.6.1"><link rel="dns-prefetch" href="https://cdn.staticfile.org"><link rel="dns-prefetch" href="https://cdn.bootcss.com"><link rel="dns-prefetch" href="https://creativecommons.org"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+} </script><meta name="generator" content="Hexo 4.2.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Jupyter-Notebook添加Kernel方法"><span class="toc-number">1.</span> <span class="toc-text">Jupyter Notebook添加Kernel方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#打开Jupyter-Notebook，出现kernel-error"><span class="toc-number">2.</span> <span class="toc-text">打开Jupyter Notebook，出现kernel error</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://i.loli.net/2019/12/26/ONZHIbxTjpgESvi.jpg"></div><div class="author-info__name text-center">Chenglin</div><div class="author-info__description text-center">好困啊 顶不住了</div><div class="follow-button"><a href="https://github.com/yikegaocaisheng">Follow Me</a></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">3</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">2</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://i.loli.net/2019/12/26/i32YJFnEQA5GX9f.jpg)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Lin的博客</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page" href="/">主页</a><a class="site-page" href="/archives">时间轴</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a><a class="site-page" href="/gallery">画册</a><a class="site-page" href="/about">关于</a></span></div><div id="post-info"><div id="post-title">Jupter Notebook 错误汇总</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-12-28</time></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h2 id="Jupyter-Notebook添加Kernel方法"><a href="#Jupyter-Notebook添加Kernel方法" class="headerlink" title="Jupyter Notebook添加Kernel方法"></a>Jupyter Notebook添加Kernel方法</h2><blockquote>
+<p>在使用conda中，经常需要创建虚拟环境，但是在Jupyter中新建Python文件只能选择python3，默认为base环境。</p>
+</blockquote>
+<ol>
+<li>创建一个环境，例如命名为keras_env</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create --name keras_env python=3.5</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>conda激活环境</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate keras_env</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>安装ipykernel模块</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install ipykernel</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>进行配置</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m ipykernel install --user --name keras_env --display-name "keras_env"</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>启动jupyter notebook，会发现python3下多出一个keras_env选项</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook</span><br></pre></td></tr></table></figure>
+
+<h2 id="打开Jupyter-Notebook，出现kernel-error"><a href="#打开Jupyter-Notebook，出现kernel-error" class="headerlink" title="打开Jupyter Notebook，出现kernel error"></a>打开Jupyter Notebook，出现kernel error</h2><blockquote>
+<p>出现kernel error原因有很多，可能是没有模块没有安装或丢失，或是解释器路径不对</p>
+<p>可以点击kernel error查看报错</p>
+<p>本方法解决大部分的路径不对问题</p>
+</blockquote>
+<ol>
+<li>先进入conda虚拟环境(例如keras_env环境出现kernel error)</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate keras_env</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>执行命令</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m ipykernel install --user</span><br></pre></td></tr></table></figure>
+
+</div></article><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Jupyter/">Jupyter</a></div><nav id="pagination"><div class="next-post pull-right"><a href="/2019/12/26/%E9%9A%8F%E7%AC%94-2019-12-26/"><span>随笔-2019.12.26</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer class="footer-bg" style="background-image: url(https://i.loli.net/2019/12/26/i32YJFnEQA5GX9f.jpg)"><div class="layout" id="footer"><div class="copyright">&copy;2019 By Chenglin</div><div class="framework-info"><span>驱动 - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file-o"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.6.1"></script><script src="/js/fancybox.js?version=1.6.1"></script><script src="/js/sidebar.js?version=1.6.1"></script><script src="/js/copy.js?version=1.6.1"></script><script src="/js/fireworks.js?version=1.6.1"></script><script src="/js/transition.js?version=1.6.1"></script><script src="/js/scroll.js?version=1.6.1"></script><script src="/js/head.js?version=1.6.1"></script><script>if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+}</script></body></html>
